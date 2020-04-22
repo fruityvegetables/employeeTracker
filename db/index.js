@@ -6,7 +6,7 @@ class Db {
     }
     findEmployees(){
         return this.connection.query(
-            "SELECT * FROM employee"
+            "SELECT first_name, last_name, role_id, manager_id FROM employee"
           );
     }
 }
