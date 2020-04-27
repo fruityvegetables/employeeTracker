@@ -44,6 +44,9 @@ async function viewDepartments() {
 }
 //CREATE async functions
 async function createEmployee() {
+        const roleChoices = await db.findRoles();
+        
+        console.log(roleChoices);
         const employeeChoice = await inquirer.prompt([
             {
                 type: "input",
@@ -54,12 +57,20 @@ async function createEmployee() {
                 type: "input",
                 name: "employeeLast",
                 message: "What is the employee's last name?",
+            },
+            {
+                type: "list",
+                name: "choices",
+                message: "~~~List of roles~~~",
+                choices: [
+                    roleChoices
+                ]
             }
         ])
     let employee = {};
     employee.first_name = employeeChoice.employeeFirst
     employee.last_name = employeeChoice.employeeLast
-    //employee.role_id = viewRoles()
+    employee.role_id = viewRoles(role.id)
     employee.manager_id = 1
     console.log(employeeChoice.employeeFirst);
     // const employeeCreated = await db.createEmployee(employee)
