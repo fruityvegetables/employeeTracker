@@ -9,6 +9,16 @@ class Db {
             "SELECT first_name, last_name, role_id, manager_id FROM employee"
           );
     }
+    findRoles(){
+        return this.connection.query(
+            "SELECT id, title, salary, department_id FROM role"
+          );
+    }
+    findDepartment(){
+        return this.connection.query(
+            "SELECT id, name FROM department"
+          );
+    }
 }
 
 module.exports = new Db(connection);

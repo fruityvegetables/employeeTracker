@@ -15,9 +15,20 @@ async function askQuestions() {
     ])
 console.log(choice);
 }
-viewEmployees();
+viewDepartment();
 
 async function viewEmployees() {
     const employees = await db.findEmployees()
       console.log(employees);
 }
+
+async function viewRoles() {
+    const roles = await db.findRoles()
+      console.log(roles);
+}
+
+async function viewDepartment() {
+    const departments = await db.findDepartment()
+      console.log(departments);
+}
+
