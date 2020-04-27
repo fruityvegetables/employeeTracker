@@ -9,26 +9,37 @@ async function askQuestions() {
             message: "Hello! What would you like to do?",
             choices: [
                 "View Employees",
-                "Anotha one"
+                "View Roles",
+                "View Departments"
             ]
         }
     ])
-console.log(choice);
+    console.log(choice.choices);
+    switch (choice.choices) {
+        case "View Roles":
+            return viewRoles();
+        case "View Employees":
+            return viewEmployees();
+        case "View Departments":
+            return viewDepartments();
+        default:
+            return
+    }
 }
-viewDepartment();
+askQuestions();
 
 async function viewEmployees() {
     const employees = await db.findEmployees()
-      console.log(employees);
+    console.log(employees);
 }
 
 async function viewRoles() {
     const roles = await db.findRoles()
-      console.log(roles);
+    console.log(roles);
 }
 
-async function viewDepartment() {
-    const departments = await db.findDepartment()
-      console.log(departments);
+async function viewDepartments() {
+    const departments = await db.findDepartments()
+    console.log(departments);
 }
 

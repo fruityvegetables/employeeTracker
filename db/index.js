@@ -14,7 +14,7 @@ class Db {
             "SELECT id, title, salary, department_id FROM role"
           );
     }
-    findDepartment(){
+    findDepartments(){
         return this.connection.query(
             "SELECT id, name FROM department"
           );
